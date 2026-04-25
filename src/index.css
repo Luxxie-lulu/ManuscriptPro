@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-editorial-sidebar: #F9F7F5;
+  --color-editorial-border: #E8E2D9;
+  --color-editorial-text: #2C2925;
+  --color-editorial-accent: #8C8476;
+  --color-editorial-bg: #F5F2ED;
+}
+
+@layer base {
+  .manuscript-content h2 {
+    @apply text-xl font-bold uppercase tracking-widest text-center my-12;
+    page-break-before: always;
+  }
+
+  .manuscript-content p {
+    margin-top: var(--spacing-before, 0);
+    margin-bottom: var(--spacing-after, 0);
+  }
+
+  .style-indented p {
+    text-indent: 0.5in;
+    margin-bottom: 0;
+  }
+
+  .style-indented p:first-of-type,
+  .style-indented h2 + p {
+    text-indent: 0;
+  }
+
+  .style-block p {
+    @apply mb-4;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-editorial-border rounded-full hover:bg-editorial-accent transition-colors;
+  }
+}
